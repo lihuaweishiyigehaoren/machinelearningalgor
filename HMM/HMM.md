@@ -49,5 +49,12 @@ HMM就是贝叶斯网络的一种，虽然名字和马尔可夫网很像。
 
 HMM是一个**关于时序的概率模型**，它的**变量分为两组**
 
-- 状态变量{s<sub>1</sub>,s<sub>2</sub>,……,s<sub>T</sub>}，其中s<sub>t</sub> &in; S
+- 状态变量{s<sub>1</sub>,s<sub>2</sub>,……,s<sub>T</sub>}，其中s<sub>t</sub> &in; S表示t时刻的系统状态
+- 观测变量{o<sub>1</sub>,o<sub>2</sub>,……,s<sub>T</sub>}， 其中o<sub>t</sub> &in; O表示t时刻的观测值
+
+状态变量和观测变量各自都是一个时间序列，每个状态/观测值都和一个时刻相对应（见下图，图中箭头表示依赖关系）：
+
+![状态变量和观测变量](D:\usegit\github\machinelearningalgor\HMM\picture\状态变量和观测变量.png)
+
+一般假定状态序列是隐藏的、不能被观测到的，因此**状态变量是隐变量**。这也是HMM中H的来源
 
