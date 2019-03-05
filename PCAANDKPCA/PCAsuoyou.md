@@ -46,8 +46,50 @@ $$
 
 1、(预处理) 样本中心化
 $$
-
+\left \{ \bar{\chi _{m}}= \chi _{m}-\bar{\chi }，m=1,2……，M \right \}，其中\bar{\chi }= \frac{1}{M}\sum _{m=1}^{M}\chi _{m}为样本中心
 $$
-2、(初始化) 
-
+2、(初始化) 计算下式的特征分解
+$$
+\Phi ^{(n)*}=\sum _{m=1}^{M}\bar{X}_{m(n)} \cdot \bar{X}_{m(n)}^{T}其中\Phi ^{(n)}是一个n维（n个向量)组成的矩阵
+$$
+​    并且设置：
+$$
+\bar{U}^{(n)}由所有有效特征值P_{n}(n=1、2、……，N)对应的特征向量组成
+$$
 3、(局部优化)
+
+- 计算：
+  $$
+  \left \{ \bar{\nu }_{m}= \bar{\chi }_{m}\times _{1}\bar{U}^{(1)^{T} }\times _{2}\bar{U^{(2)^{T}}}\cdots\times _{N}\bar{U}^{(N)^{T}},m=1、2……、M \right \}
+  $$
+
+- 计算：
+  $$
+  \psi _{\nu _{0}}= \sum _{m=1}^{M}\begin{Vmatrix}
+  \bar{\nu }_{m}
+  \end{Vmatrix}_{F}^{2}(其中\bar{\bar{\nu }}全为0，因为\bar{\chi }_{m}是中心化的)；其中\psi _{\nu _{0}}是总体的张量散度
+  $$
+  
+
+- For k=1:K
+
+  ​    For n = 1:N
+  $$
+  设置\bar{U}^{(n)}由所有有效特征值P_{n}(n=1、2、……，N)对应的特征向量组成
+  $$
+  ​    计算：
+  $$
+  \left \{ \bar{\nu }_{m}，m=1,2……，M\right \}和\psi _{\nu _{k}}
+  $$
+  
+
+​           如果：
+$$
+\psi _{\nu _{k}}-\psi _{\nu _{k=1}}<\eta ，停止并进入步骤4
+$$
+4、（推测）：演算之后获得的特征张量是：
+$$
+\left \{ \nu _{m}= \chi _{m}\times _{1}\bar{U}^{(1)^{T} }\times _{2}\bar{U^{(2)^{T}}}\cdots\times _{N}\bar{U}^{(N)^{T}},m=1、2……、M \right \}
+$$
+至此，MPCA的计算过程结束；
+
